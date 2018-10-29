@@ -216,7 +216,6 @@ class WifiChip : public V1_2::IWifiChip {
     bool canCurrentModeSupportIfaceOfType(IfaceType type);
     bool isValidModeId(ChipModeId mode_id);
     std::string allocateApOrStaIfaceName();
-    std::string qcAllocateApIfaceName();
     bool writeRingbufferFilesInternal();
 
     ChipId chip_id_;
@@ -239,8 +238,6 @@ class WifiChip : public V1_2::IWifiChip {
     bool debug_ring_buffer_cb_registered_;
     hidl_callback_util::HidlCallbackHandler<IWifiChipEventCallback>
         event_cb_handler_;
-
-    std::vector<sp<WifiApIface>> created_ap_ifaces_;
 
     DISALLOW_COPY_AND_ASSIGN(WifiChip);
 };
